@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects | Illia Ivanov</title>
+  <meta name="description"
+    content="Work samples from Illia Ivanov: campus network operations, identity administration, Windows deployment automation, and the LinkCast capstone.">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e1217'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='700' fill='%233ccf91' text-anchor='middle'%3EII%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">Illia Ivanov<span>net/cloud</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html" aria-current="page">Projects</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <header class="page-header">
+        <p class="eyebrow">Work Samples</p>
+        <h1>Projects</h1>
+        <p>Work from a 2,000+ user campus network, plus my senior capstone.</p>
+      </header>
+
+      <nav class="jump-nav" aria-label="On this page">
+        <ul>
+          <li><a href="#linkcast">01 LinkCast</a></li>
+          <li><a href="#campus-network">02 Campus Network</a></li>
+          <li><a href="#identity">03 Identity &amp; IR</a></li>
+          <li><a href="#deployment-automation">04 Deployment Automation</a></li>
+        </ul>
+      </nav>
+
+      <div class="project-list">
+
+        <article class="project" id="linkcast">
+          <div class="project-head">
+            <h2><span class="project-num">01</span>LinkCast (Capstone)</h2>
+            <p class="meta">Seward County Community College &middot; <span class="badge badge-progress">In development,
+                Fall 2026</span></p>
+          </div>
+          <dl class="project-body">
+            <dt>Problem</dt>
+            <dd>Classroom screen sharing relies on hardware dongles operating point-to-point, one transmitter per
+              display, with no network involvement. Each room needs dedicated hardware.</dd>
+
+            <dt>Approach</dt>
+            <dd>Browser-based screen distribution over the campus local network. A lightweight host agent captures the
+              instructor's screen; any browser-capable display joins with an IP address and a short session code.</dd>
+
+            <dt>Tools</dt>
+            <dd>
+              <ul class="tags">
+                <li>Python</li>
+                <li>FastAPI</li>
+                <li>MJPEG / WebRTC</li>
+                <li>Vanilla JavaScript</li>
+              </ul>
+            </dd>
+
+            <dt>Role</dt>
+            <dd>Sole developer. Client discovery and the signed memorandum of understanding are complete; currently in
+              architecture and implementation.</dd>
+
+            <dt>Status</dt>
+            <dd class="outcome">In development for Seward County Community College, Fall 2026.</dd>
+
+            <dt>Reflection</dt>
+            <dd>I work for the client, so I assumed I already knew what was needed. Discovery showed me that knowing the organization is not the same as having agreed scope. Next is a working MVP; after that I want to be the one designing infrastructure changes, not just making them.</dd>
+
+            <dt>Link</dt>
+            <dd><a href="https://github.com/illiaivanov-it/linkcast">GitHub repository</a></dd>
+          </dl>
+        </article>
+
+        <article class="project" id="campus-network">
+          <div class="project-head">
+            <h2><span class="project-num">02</span>Campus Network Operations</h2>
+            <p class="meta">Multi-building campus &middot; 2,000+ users</p>
+          </div>
+          <dl class="project-body">
+            <dt>Problem</dt>
+            <dd>Multi-building campus network with heterogeneous switching hardware and a large VLAN design serving
+              2,000+ users.</dd>
+
+            <dt>Work</dt>
+            <dd>Configuration and troubleshooting of access switching across approximately 200 VLANs spanning access
+              points, voice, cameras, and physical access control segments.</dd>
+
+            <dt>Tools</dt>
+            <dd>
+              <ul class="tags">
+                <li>Aruba AOS-CX 6300M / 6100</li>
+                <li>Cisco Catalyst 2960C / 3750</li>
+                <li>Trunk &amp; access ports</li>
+                <li>RPVST+</li>
+                <li>OSPF (transit VLANs)</li>
+                <li>PoE 802.3af/at</li>
+                <li>LLDP / LLDP-MED</li>
+                <li>SNMPv3</li>
+              </ul>
+            </dd>
+
+            <dt>Role</dt>
+            <dd>Configuration engineer, independently determining port schemes.</dd>
+
+            <dt>Outcome</dt>
+            <dd class="outcome">Audited a 48-port PoE switch prior to production deployment and delivered a findings
+              report to the CIO identifying:
+              <ul>
+                <li>OSPF and transit VLAN mismatches</li>
+                <li>Cameras placed in the default VLAN</li>
+                <li>Missing syslog and TACACS configuration</li>
+              </ul>
+            </dd>
+
+            <dt>Reflection</dt>
+            <dd>Reading a switch configuration end to end against what the switch is actually for turned up problems no ticket had reported. I want to move toward designing VLAN and routing changes rather than applying ones someone else specified.</dd>
+          </dl>
+        </article>
+
+        <article class="project" id="identity">
+          <div class="project-head">
+            <h2><span class="project-num">03</span>Identity Administration &amp; Incident Response</h2>
+            <p class="meta">Hybrid AD + Entra ID &middot; 2,000+ users</p>
+          </div>
+          <dl class="project-body">
+            <dt>Problem</dt>
+            <dd>Cloud identity for 2,000+ users across a hybrid Active Directory and Entra ID environment, including
+              authentication incidents and a security compromise.</dd>
+
+            <dt>Tools</dt>
+            <dd>
+              <ul class="tags">
+                <li>Microsoft Entra ID (Global Admin)</li>
+                <li>Entra Connect</li>
+                <li>Hybrid join</li>
+                <li>SAML claim mapping</li>
+                <li>Microsoft Graph</li>
+                <li>PowerShell Graph SDK</li>
+                <li>MFA &amp; FIDO2</li>
+                <li>LDAPS</li>
+                <li>AD CS</li>
+              </ul>
+            </dd>
+
+            <dt>Role</dt>
+            <dd>Primary administrator for the identity domain.</dd>
+
+            <dt>Outcome</dt>
+            <dd class="outcome">
+              <p>During a May 2026 security incident, reviewed four days of audit log exports, identified and removed
+                accounts created during the compromise window, and validated vendor service accounts.</p>
+              <p>Separately proposed separating the Global Administrator role from daily-use accounts and implementing
+                Privileged Identity Management.</p>
+            </dd>
+
+            <dt>Reflection</dt>
+            <dd>The incident was more about reading evidence than changing settings. Knowing what normal looks like in an audit log mattered more than knowing the portal. I am studying for MD-102 and want to end up working in cloud identity.</dd>
+          </dl>
+        </article>
+
+        <article class="project" id="deployment-automation">
+          <div class="project-head">
+            <h2><span class="project-num">04</span>Windows Deployment Automation</h2>
+            <p class="meta">Multiple offices &middot; PowerShell</p>
+          </div>
+          <dl class="project-body">
+            <dt>Problem</dt>
+            <dd>New machine setup and Windows feature upgrades required manual, repetitive work across multiple offices.
+            </dd>
+
+            <dt>Tools</dt>
+            <dd>
+              <ul class="tags">
+                <li>PowerShell</li>
+                <li>PsExec</li>
+                <li>Dell Image Assist</li>
+                <li>sysprep &amp; unattend.xml</li>
+                <li>Group Policy</li>
+                <li>Active Directory cmdlets</li>
+              </ul>
+            </dd>
+
+            <dt>Role</dt>
+            <dd>Author of the automation end to end.</dd>
+
+            <dt>Outcome</dt>
+            <dd class="outcome">
+              <ul>
+                <li>Reduced new-machine preparation to a single menu-driven script run.</li>
+                <li>Orchestrated feature upgrades across 10+ machines remotely from one workstation instead of visiting
+                  each office.</li>
+              </ul>
+            </dd>
+
+            <dt>Reflection</dt>
+            <dd>I wrote the script to save an afternoon. The part that actually mattered was that every machine came out the same. Moving this into Intune and Autopilot is the next step.</dd>
+          </dl>
+        </article>
+
+      </div>
+    </div>
+    <div class="to-top-track">
+      <a class="to-top" href="#top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Illia Ivanov</p>
+      <ul>
+        <li><a href="mailto:illiaivanoviio@gmail.com">Email</a></li>
+        <li><a href="https://github.com/illiaivanov-it">GitHub</a></li>
+        <li><a href="resume.pdf" download>Resume</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+
+</html>
